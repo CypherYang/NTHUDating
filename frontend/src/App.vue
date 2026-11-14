@@ -1,5 +1,5 @@
 <template>
-  <n-config-provider>
+  <n-config-provider :theme="darkTheme">
     <n-message-provider>
       <n-dialog-provider>
         <n-notification-provider>
@@ -21,7 +21,13 @@
 <script setup>
 import { onMounted, watch } from 'vue'
 import { RouterView } from 'vue-router'
-import { NConfigProvider, NMessageProvider, NDialogProvider, NNotificationProvider } from 'naive-ui'
+import {
+  NConfigProvider,
+  NMessageProvider,
+  NDialogProvider,
+  NNotificationProvider,
+  darkTheme
+} from 'naive-ui'
 import { useUserStore } from '@/stores/user'
 import { useWebSocketStore } from '@/stores/websocket'
 import { useNotificationStore } from '@/stores/notification'

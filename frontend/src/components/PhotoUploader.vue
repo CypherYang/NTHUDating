@@ -487,7 +487,7 @@ const submitAppeal = async () => {
 
 .btn-delete,
 .btn-set-primary {
-  background: white;
+  background: var(--color-surface);
   border: none;
   border-radius: 50%;
   width: var(--touch-target-min, 44px);
@@ -748,7 +748,7 @@ const submitAppeal = async () => {
 
 .rejected-delete-btn:hover {
   background: rgba(0, 0, 0, 0.9);
-  border-color: white;
+  border-color: var(--color-surface);
 }
 
 /* 申訴 Modal */
@@ -764,7 +764,7 @@ const submitAppeal = async () => {
 }
 
 .appeal-modal {
-  background: white;
+  background: var(--color-surface);
   border-radius: var(--radius-lg);
   max-width: 450px;
   width: 100%;

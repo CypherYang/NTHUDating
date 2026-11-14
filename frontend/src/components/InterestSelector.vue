@@ -174,7 +174,7 @@ const toggleTag = (tagId) => {
   align-items: center;
   gap: 0.5rem;
   padding: 1rem;
-  background: white;
+  background: var(--color-surface);
   border: 2px solid var(--color-border);
   border-radius: var(--radius-md);
   cursor: pointer;

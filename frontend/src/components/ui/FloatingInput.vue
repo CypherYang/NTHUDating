@@ -122,7 +122,7 @@ const togglePasswordVisibility = () => {
   border: 2px solid var(--color-border);
   border-radius: 12px;
   font-size: 1rem;
-  background: white;
+  background: var(--color-surface);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   outline: none;
 }
@@ -147,7 +147,7 @@ const togglePasswordVisibility = () => {
   font-size: 1rem;
   pointer-events: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  background: white;
+  background: var(--color-surface);
   padding: 0 4px;
 }
 

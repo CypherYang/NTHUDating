@@ -2,7 +2,7 @@
   <div class="admin-login-page">
     <div class="login-container">
       <div class="login-header">
-        <h1>MergeMeet 管理後台</h1>
+        <h1>NTHUDating 管理後台</h1>
         <p>管理員登入</p>
       </div>
 
@@ -112,7 +112,7 @@ const handleLogin = async () => {
 }
 
 .login-container {
-  background: white;
+  background: var(--color-surface);
   border-radius: 16px;
   padding: 40px;
   width: 100%;

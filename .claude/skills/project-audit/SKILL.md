@@ -1,13 +1,13 @@
 ---
 name: project-audit
-description: 評估 MergeMeet 專案健康狀態時使用此 skill。協助檢查功能完整性、前後端一致性、潛在錯誤和用戶流程邏輯。適用於開發新功能前或 sprint 審查時。
+description: 評估 NTHUDating 專案健康狀態時使用此 skill。協助檢查功能完整性、前後端一致性、潛在錯誤和用戶流程邏輯。適用於開發新功能前或 sprint 審查時。
 ---
 
 # 專案審查
 
 ## 目的
 
-檢查 MergeMeet 交友平台的健康狀態：功能完整性、前後端一致性、用戶流程邏輯。
+檢查 NTHUDating 交友平台的健康狀態：功能完整性、前後端一致性、用戶流程邏輯。
 
 ---
 
@@ -54,6 +54,6 @@ cd backend && pytest -v --cov=app
 
 ## 相關 Skills
 
-- **mergemeet-quickstart** - 開發指南
+- **nthu-quickstart** - 開發指南
 - **backend-dev-fastapi** - 後端標準
 - **frontend-dev-vue3** - 前端標準

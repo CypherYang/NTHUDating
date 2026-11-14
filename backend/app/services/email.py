@@ -144,7 +144,7 @@ class EmailService:
             </div>
         </div>
         <div class="footer">
-            <p>© 2025 MergeMeet. All rights reserved.</p>
+            <p>© 2025 NTHUDating. All rights reserved.</p>
             <p>這是系統自動發送的郵件，請勿直接回覆。</p>
         </div>
     </div>
@@ -166,13 +166,13 @@ Hi {username},
 - 如果您沒有請求重置密碼，請忽略此郵件
 - 請勿將此鏈接分享給他人
 
-© 2025 MergeMeet
+© 2025 NTHUDating
 這是系統自動發送的郵件，請勿直接回覆。
         """
 
         return await EmailService.send_email(
             to_email=to_email,
-            subject="🔐 MergeMeet - 密碼重置請求",
+            subject="🔐 NTHUDating - 密碼重置請求",
             html_content=html_content,
             text_content=text_content,
         )
@@ -213,7 +213,7 @@ Hi {username},
         </div>
         <div class="content">
             <p>Hi <strong>{username}</strong>,</p>
-            <p>歡迎加入 MergeMeet！請使用以下驗證碼完成註冊：</p>
+            <p>歡迎加入 NTHUDating！請使用以下驗證碼完成註冊：</p>
             <div class="code">{verification_code}</div>
             <p><strong>⚠️ 注意：</strong></p>
             <ul style="margin: 8px 0; padding-left: 20px;">
@@ -222,7 +222,7 @@ Hi {username},
             </ul>
         </div>
         <div class="footer">
-            <p>© 2025 MergeMeet. All rights reserved.</p>
+            <p>© 2025 NTHUDating. All rights reserved.</p>
         </div>
     </div>
 </body>
@@ -232,18 +232,18 @@ Hi {username},
         text_content = f"""
 Hi {username},
 
-歡迎加入 MergeMeet！
+歡迎加入 NTHUDating！
 
 您的驗證碼是：{verification_code}
 
 ⚠️ 此驗證碼將在 10 分鐘後失效，請勿分享給他人。
 
-© 2025 MergeMeet
+© 2025 NTHUDating
         """
 
         return await EmailService.send_email(
             to_email=to_email,
-            subject="✉️ MergeMeet - Email 驗證碼",
+            subject="✉️ NTHUDating - Email 驗證碼",
             html_content=html_content,
             text_content=text_content,
         )
@@ -287,7 +287,7 @@ Hi {username},
         </div>
         <div class="content">
             <p>Hi <strong>{username}</strong>,</p>
-            <p>您的 MergeMeet 帳號密碼已成功變更。</p>
+            <p>您的 NTHUDating 帳號密碼已成功變更。</p>
 
             <div class="info-box">
                 <p><strong>✅ 變更資訊：</strong></p>
@@ -304,7 +304,7 @@ Hi {username},
             </div>
         </div>
         <div class="footer">
-            <p>© 2025 MergeMeet. All rights reserved.</p>
+            <p>© 2025 NTHUDating. All rights reserved.</p>
             <p>這是系統自動發送的郵件，請勿直接回覆。</p>
         </div>
     </div>
@@ -315,7 +315,7 @@ Hi {username},
         text_content = f"""
 Hi {username},
 
-您的 MergeMeet 帳號密碼已成功變更。
+您的 NTHUDating 帳號密碼已成功變更。
 
 變更時間：{change_time}
 
@@ -324,13 +324,13 @@ Hi {username},
 - 使用「忘記密碼」功能重置密碼
 - 聯繫客服尋求協助
 
-© 2025 MergeMeet
+© 2025 NTHUDating
 這是系統自動發送的郵件，請勿直接回覆。
         """
 
         return await EmailService.send_email(
             to_email=to_email,
-            subject="🔒 MergeMeet - 密碼變更通知",
+            subject="🔒 NTHUDating - 密碼變更通知",
             html_content=html_content,
             text_content=text_content,
         )
@@ -389,13 +389,13 @@ Hi {username},
 
             <div class="info-box">
                 <p><strong>💡 改變心意了嗎？</strong></p>
-                <p>在期限前重新登入 MergeMeet，帳號即會自動復原。</p>
+                <p>在期限前重新登入 NTHUDating，帳號即會自動復原。</p>
             </div>
 
-            <p>感謝您曾使用 MergeMeet，期待未來再相見。</p>
+            <p>感謝您曾使用 NTHUDating，期待未來再相見。</p>
         </div>
         <div class="footer">
-            <p>© 2025 MergeMeet. All rights reserved.</p>
+            <p>© 2025 NTHUDating. All rights reserved.</p>
             <p>這是系統自動發送的郵件，請勿直接回覆。</p>
         </div>
     </div>
@@ -413,17 +413,17 @@ Hi {username},
 - 屆時所有個人資料、配對與聊天記錄將無法恢復
 
 💡 改變心意了嗎？
-在期限前重新登入 MergeMeet，帳號即會自動復原。
+在期限前重新登入 NTHUDating，帳號即會自動復原。
 
-感謝您曾使用 MergeMeet，期待未來再相見。
+感謝您曾使用 NTHUDating，期待未來再相見。
 
-© 2025 MergeMeet
+© 2025 NTHUDating
 這是系統自動發送的郵件，請勿直接回覆。
         """
 
         return await EmailService.send_email(
             to_email=to_email,
-            subject="👋 MergeMeet - 帳號刪除確認",
+            subject="👋 NTHUDating - 帳號刪除確認",
             html_content=html_content,
             text_content=text_content,
         )

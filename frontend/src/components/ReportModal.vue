@@ -196,7 +196,7 @@ watch(
 
 /* Modal 內容 */
 .modal-content {
-  background: white;
+  background: var(--color-surface);
   border-radius: var(--radius-xl);
   max-width: min(500px, calc(100vw - 40px));
   width: 100%;

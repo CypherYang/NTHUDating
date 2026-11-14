@@ -1,4 +1,4 @@
-"""MergeMeet FastAPI 主應用"""
+"""NTHUDating FastAPI 主應用"""
 
 import asyncio
 import logging
@@ -43,7 +43,7 @@ logger = logging.getLogger(__name__)
 async def lifespan(app: FastAPI):
     """應用程式生命週期管理"""
     # 啟動時執行
-    logger.info("🚀 MergeMeet 啟動中...")
+    logger.info("🚀 NTHUDating 啟動中...")
     # await init_db()  # 暫時註解，等資料庫啟動後再開啟
 
     # 初始化 Redis 連線給各服務
@@ -84,7 +84,7 @@ async def lifespan(app: FastAPI):
 
     yield
     # 關閉時執行
-    logger.info("👋 MergeMeet 關閉中...")
+    logger.info("👋 NTHUDating 關閉中...")
 
     # 停止 Pass 記錄清理任務
     await pass_cleanup.stop_cleanup_task()
@@ -106,7 +106,7 @@ async def lifespan(app: FastAPI):
 app = FastAPI(
     title=settings.PROJECT_NAME,
     version=settings.VERSION,
-    description="MergeMeet 交友平台 API",
+    description="NTHUDating 交友平台 API",
     lifespan=lifespan,
     redirect_slashes=False,  # 禁用自動重定向，統一不使用 trailing slash
 )
@@ -157,7 +157,7 @@ app.mount("/uploads", StaticFiles(directory=str(uploads_dir)), name="uploads")
 @app.get("/")
 async def root():
     """根路徑"""
-    return {"message": "歡迎使用 MergeMeet API", "version": settings.VERSION, "docs": "/docs"}
+    return {"message": "歡迎使用 NTHUDating API", "version": settings.VERSION, "docs": "/docs"}
 
 
 @app.get("/health")
@@ -170,7 +170,7 @@ async def health_check():
     """
     health_status = {
         "status": "healthy",
-        "service": "MergeMeet API",
+        "service": "NTHUDating API",
         "version": settings.VERSION,
         "redis": {
             "token_blacklist": token_blacklist.is_using_redis(),

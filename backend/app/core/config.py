@@ -9,18 +9,16 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", case_sensitive=True, extra="ignore")
 
     # 專案資訊
-    PROJECT_NAME: str = "MergeMeet"
+    PROJECT_NAME: str = "NTHUDating"
     VERSION: str = "1.0.0"
     API_V1_PREFIX: str = "/api"
 
     # 資料庫（必須從環境變數設定）
-    DATABASE_URL: str = (
-        "postgresql+asyncpg://mergemeet:YOUR_DB_PASSWORD_HERE@localhost:5432/mergemeet"
-    )
+    DATABASE_URL: str = "postgresql+asyncpg://nthu:YOUR_DB_PASSWORD_HERE@localhost:5432/nthu"
 
     # Redis（用於 Token 黑名單、登入限制、信任分數、內容審核快取）
     # ⚠️ 正式環境請更換為安全密碼
-    REDIS_URL: str = "redis://:mergemeet_redis123@localhost:6379/0"
+    REDIS_URL: str = "redis://:nthu_redis123@localhost:6379/0"
     REDIS_MAX_CONNECTIONS: int = 50
 
     # 全域 IP 速率限制（slowapi，storage 共用 REDIS_URL）
@@ -57,10 +55,10 @@ class Settings(BaseSettings):
     # Email 服務配置 (開發環境使用 Mailpit)
     SMTP_HOST: str = "localhost"
     SMTP_PORT: int = 1025
-    SMTP_USER: str = "mergemeet"
+    SMTP_USER: str = "nthu"
     SMTP_PASSWORD: str = ""
-    SMTP_FROM_EMAIL: str = "noreply@mergemeet.com"
-    SMTP_FROM_NAME: str = "MergeMeet"
+    SMTP_FROM_EMAIL: str = "noreply@nthu.com"
+    SMTP_FROM_NAME: str = "NTHUDating"
     SMTP_TLS: bool = False
 
     # 前端 URL (用於生成重置密碼鏈接)

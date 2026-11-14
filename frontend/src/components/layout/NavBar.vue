@@ -13,7 +13,7 @@
       <!-- 左側：Logo/標題 -->
       <div class="navbar-left">
         <router-link to="/" class="logo-link">
-          <span class="logo-text">MergeMeet</span>
+          <span class="logo-text">NTHUDating</span>
         </router-link>
       </div>
 

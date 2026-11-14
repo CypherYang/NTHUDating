@@ -292,7 +292,7 @@ onMounted(() => {
 }
 
 .back-btn:hover {
-  background: white;
+  background: var(--color-surface);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(255, 107, 107, 0.3);
 }
@@ -330,7 +330,7 @@ onMounted(() => {
 }
 
 .tab-btn:hover {
-  background: white;
+  background: var(--color-surface);
   color: var(--color-like-accessible);
 }
 
@@ -369,7 +369,7 @@ onMounted(() => {
 .empty-state {
   text-align: center;
   padding: 60px 20px;
-  background: white;
+  background: var(--color-surface);
   border-radius: var(--radius-xl);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
@@ -399,7 +399,7 @@ onMounted(() => {
 }
 
 .report-item {
-  background: white;
+  background: var(--color-surface);
   border-radius: var(--radius-lg);
   padding: 20px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);

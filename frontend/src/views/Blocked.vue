@@ -286,7 +286,7 @@ onMounted(() => {
 
 /* 封鎖卡片 */
 .blocked-card {
-  background: white;
+  background: var(--color-surface);
   border-radius: var(--radius-lg);
   padding: 24px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
@@ -394,7 +394,7 @@ onMounted(() => {
 
 /* Modal 容器 */
 .modal-container {
-  background: white;
+  background: var(--color-surface);
   border-radius: var(--radius-xl);
   max-width: 450px;
   width: 100%;

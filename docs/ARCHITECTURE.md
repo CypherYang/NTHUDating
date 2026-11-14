@@ -1,4 +1,4 @@
-# 🏗️ MergeMeet 架構文檔
+# 🏗️ NTHUDating 架構文檔
 
 ## 📋 文檔目的
 
@@ -11,7 +11,7 @@
 ### 1.1 專案定義
 
 ```yaml
-專案名稱: MergeMeet
+專案名稱: NTHUDating
 專案類型: Web-based Dating Platform (網頁版交友平台)
 目標市場: 台灣（初期）
 目標用戶: 18歲以上成年人
@@ -299,7 +299,7 @@
 
 #### 為什麼使用 PostGIS
 
-MergeMeet 作為交友平台，**地理位置搜索是核心功能**：
+NTHUDating 作為交友平台，**地理位置搜索是核心功能**：
 - 用戶需要找到「附近的人」
 - 配對算法需要計算用戶間的實際距離
 - 距離是配對評分的重要因素（佔 20%）
@@ -426,7 +426,7 @@ async with engine.begin() as conn:
 **錯誤 1**：`function st_distance does not exist`
 ```bash
 # 解決方案：啟用 PostGIS 擴展
-docker exec mergemeet_postgres psql -U mergemeet -d mergemeet \
+docker exec nthu_postgres psql -U nthu -d nthu \
   -c "CREATE EXTENSION IF NOT EXISTS postgis;"
 ```
 
@@ -462,7 +462,7 @@ if profile.location is None:
 
 ## 4. 開發策略
 
-> 詳見 **Skill: mergemeet-quickstart** 的 [workflows.md](../.claude/skills/mergemeet-quickstart/references/workflows.md)
+> 詳見 **Skill: nthu-quickstart** 的 [workflows.md](../.claude/skills/nthu-quickstart/references/workflows.md)
 
 包含：
 - Git 工作流程與分支策略
@@ -588,7 +588,7 @@ pytest -m unit              # 特定標記
 
 **文檔版本：** 2.8.0
 **最後更新：** 2025-12-26
-**維護者：** MergeMeet Development Team
+**維護者：** NTHUDating Development Team
 
 ---
 

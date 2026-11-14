@@ -199,7 +199,7 @@ onMounted(async () => {
 }
 
 .back-home-btn:hover {
-  background: white;
+  background: var(--color-surface);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px var(--color-primary-alpha-30);
 }
@@ -209,7 +209,7 @@ onMounted(async () => {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background: white;
+  background: var(--color-surface);
   border-bottom: 2px solid var(--color-border-light);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   gap: 16px;
@@ -249,7 +249,7 @@ onMounted(async () => {
   justify-content: center;
   min-height: 500px;
   text-align: center;
-  background: white;
+  background: var(--color-surface);
   border-radius: var(--radius-xl);
   padding: 60px 40px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -303,7 +303,7 @@ onMounted(async () => {
 }
 
 .conversation-list {
-  background: white;
+  background: var(--color-surface);
   border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -485,7 +485,7 @@ onMounted(async () => {
 
 @media (max-width: 480px) {
   .chat-list-page {
-    background: white;
+    background: var(--color-surface);
   }
 
   .page-header {

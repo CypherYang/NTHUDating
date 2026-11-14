@@ -1,13 +1,13 @@
 ---
 name: frontend-dev-vue3
-description: 在 MergeMeet 開發前端功能時使用此 skill。提供 Vue 3 Composition API + Pinia + Vue Router 的開發模式指南，包含組件設計、狀態管理、路由、API 整合和 WebSocket 處理。
+description: 在 NTHUDating 開發前端功能時使用此 skill。提供 Vue 3 Composition API + Pinia + Vue Router 的開發模式指南，包含組件設計、狀態管理、路由、API 整合和 WebSocket 處理。
 ---
 
 # Vue 3 前端開發指南
 
 ## 目的
 
-建立 MergeMeet 專案中 Vue 3 + Pinia + Vue Router 開發的一致模式。
+建立 NTHUDating 專案中 Vue 3 + Pinia + Vue Router 開發的一致模式。
 
 ---
 

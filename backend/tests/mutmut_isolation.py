@@ -28,7 +28,7 @@ from urllib.parse import urlsplit, urlunsplit
 from sqlalchemy import create_engine, text
 
 MAX_SLOTS = 15  # Redis 預設 16 個 db，db 0 保留
-LOCK_DIR = Path(tempfile.gettempdir()) / "mergemeet-mutmut-slots"
+LOCK_DIR = Path(tempfile.gettempdir()) / "nthu-mutmut-slots"
 
 _lock_fd: int | None = None
 

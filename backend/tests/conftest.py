@@ -41,7 +41,7 @@ from app.services.token_invalidator import TokenInvalidator  # noqa: E402
 # 優先從環境變數讀取，預設值僅作為提醒
 TEST_DATABASE_URL = os.getenv(
     "TEST_DATABASE_URL",
-    "postgresql+asyncpg://mergemeet:YOUR_DB_PASSWORD_HERE@localhost:5432/mergemeet_test",
+    "postgresql+asyncpg://nthu:YOUR_DB_PASSWORD_HERE@localhost:5432/nthu_test",
 )
 
 # 同步版本 URL（用於清除殘留連線，使用 psycopg3 同步驅動）

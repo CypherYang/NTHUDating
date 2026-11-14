@@ -16,7 +16,7 @@
 
 ---
 
-## MergeMeet API 範例
+## NTHUDating API 範例
 
 ### Profile（個人檔案）
 

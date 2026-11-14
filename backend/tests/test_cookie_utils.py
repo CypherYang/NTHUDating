@@ -31,7 +31,7 @@ def parse_set_cookies(response: Response) -> dict[str, dict]:
 def cookie_settings(monkeypatch):
     monkeypatch.setattr(settings, "COOKIE_SECURE", True)
     monkeypatch.setattr(settings, "COOKIE_SAMESITE", "strict")
-    monkeypatch.setattr(settings, "COOKIE_DOMAIN", "mergemeet.example")
+    monkeypatch.setattr(settings, "COOKIE_DOMAIN", "nthu.example")
     monkeypatch.setattr(settings, "COOKIE_PATH", "/app")
     monkeypatch.setattr(settings, "ACCESS_TOKEN_EXPIRE_MINUTES", 30)
     monkeypatch.setattr(settings, "REFRESH_TOKEN_EXPIRE_DAYS", 7)
@@ -42,7 +42,7 @@ def test_set_auth_cookies_attributes(cookie_settings):
 
     set_auth_cookies(response, "access-jwt", "refresh-jwt", "csrf-value")
 
-    common = {"secure": True, "samesite": "strict", "domain": "mergemeet.example"}
+    common = {"secure": True, "samesite": "strict", "domain": "nthu.example"}
     assert parse_set_cookies(response) == {
         "access_token": {
             "value": "access-jwt",
@@ -72,9 +72,9 @@ def test_clear_auth_cookies_matches_set_path_and_domain(cookie_settings):
     cookies = parse_set_cookies(response)
     assert set(cookies) == {"access_token", "refresh_token", "csrf_token"}
     assert {name: (c["path"], c["domain"], c["max-age"]) for name, c in cookies.items()} == {
-        "access_token": ("/app", "mergemeet.example", "0"),
-        "refresh_token": ("/api/auth", "mergemeet.example", "0"),
-        "csrf_token": ("/app", "mergemeet.example", "0"),
+        "access_token": ("/app", "nthu.example", "0"),
+        "refresh_token": ("/api/auth", "nthu.example", "0"),
+        "csrf_token": ("/app", "nthu.example", "0"),
     }
 
 

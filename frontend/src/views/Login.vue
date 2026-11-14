@@ -9,7 +9,7 @@
           </div>
         </div>
         <h1>歡迎回來</h1>
-        <p>登入 MergeMeet 開始配對</p>
+        <p>登入 NTHUDating 開始配對</p>
       </div>
 
       <!-- 鎖定警告 -->

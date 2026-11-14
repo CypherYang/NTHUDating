@@ -1,12 +1,12 @@
-# MergeMeet 開發指南
+# NTHUDating 開發指南
 
-> 詳細開發流程請使用 **Skill: mergemeet-quickstart**
+> 詳細開發流程請使用 **Skill: nthu-quickstart**
 
 ---
 
 ## 專案資訊
 
-- **專案名稱**: MergeMeet 交友平台
+- **專案名稱**: NTHUDating 交友平台
 - **技術棧**: FastAPI + Vue 3 + PostgreSQL + PostGIS + Redis
 - **開發階段**: MVP（Week 1-6 已完成）
 - **測試覆蓋率**: 目標 >80%（後端現約 68%）
@@ -35,7 +35,7 @@ cd frontend && npm run dev
 | **api-routing-standards** | API 路由規則 - 強制「無尾隨斜線」以防止 404 錯誤 |
 | **backend-dev-fastapi** | FastAPI + SQLAlchemy 2.0 Async 開發模式 |
 | **frontend-dev-vue3** | Vue 3 Composition API + Pinia 開發模式 |
-| **mergemeet-quickstart** | 完整開發流程、指令和故障排除 |
+| **nthu-quickstart** | 完整開發流程、指令和故障排除 |
 | **project-audit** | 專案健康檢查 - 功能完整性和一致性 |
 | **ui-ux-pro-max** | UI/UX 設計智能 - 67 種樣式、96 種配色、字型配對與元件範例 |
 
@@ -50,7 +50,7 @@ cd frontend && npm run dev
 │   └── SKILL.md
 ├── frontend-dev-vue3/
 │   └── SKILL.md
-├── mergemeet-quickstart/
+├── nthu-quickstart/
 │   ├── SKILL.md
 │   └── references/           # 指令、工具、故障排除、工作流程
 ├── project-audit/
@@ -98,7 +98,7 @@ await axios.get('/api/profile/')         // 404
 
 ```bash
 # 資料庫
-docker exec -it mergemeet_postgres psql -U mergemeet -d mergemeet
+docker exec -it nthu_postgres psql -U nthu -d nthu
 
 # 測試
 cd backend && pytest -v --cov=app
@@ -114,7 +114,7 @@ cd frontend && npm run format         # 前端格式化
 docker compose down -v && docker compose up -d
 ```
 
-完整指令列表請使用 **Skill: mergemeet-quickstart**
+完整指令列表請使用 **Skill: nthu-quickstart**
 
 ---
 

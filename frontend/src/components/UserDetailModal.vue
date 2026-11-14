@@ -214,7 +214,7 @@ onUnmounted(() => {
 
 /* Modal 容器 */
 .modal-container {
-  background: white;
+  background: var(--color-surface);
   border-radius: var(--radius-xl);
   max-width: min(500px, calc(100vw - 40px));
   width: 100%;
@@ -263,7 +263,7 @@ onUnmounted(() => {
 }
 
 .close-btn:focus-visible {
-  outline: 3px solid white;
+  outline: 3px solid var(--color-surface);
   outline-offset: 2px;
 }
 
@@ -332,7 +332,7 @@ onUnmounted(() => {
 }
 
 .carousel-btn:hover {
-  background: white;
+  background: var(--color-surface);
   transform: translateY(-50%) scale(1.1);
 }
 
@@ -369,7 +369,7 @@ onUnmounted(() => {
 }
 
 .indicator.active {
-  background: white;
+  background: var(--color-surface);
   transform: scale(1.3);
 }
 

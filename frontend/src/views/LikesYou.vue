@@ -319,7 +319,7 @@ onMounted(() => {
 }
 
 .back-home-btn:hover {
-  background: white;
+  background: var(--color-surface);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px var(--color-like-alpha-20);
 }
@@ -463,7 +463,7 @@ onMounted(() => {
 /* 喜歡我的人卡片 */
 .liker-card {
   position: relative;
-  background: white;
+  background: var(--color-surface);
   border-radius: var(--radius-xl);
   padding: 24px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
@@ -527,7 +527,7 @@ onMounted(() => {
   height: 90px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid white;
+  border: 3px solid var(--color-surface);
 }
 
 .avatar-placeholder {
@@ -548,7 +548,7 @@ onMounted(() => {
   height: 20px;
   background: var(--color-success-500);
   border-radius: 50%;
-  border: 3px solid white;
+  border: 3px solid var(--color-surface);
   animation: pulse 2s ease-in-out infinite;
 }
 

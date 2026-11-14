@@ -1,4 +1,4 @@
-# 🎉 MergeMeet 交友平台
+# 🎉 NTHUDating 交友平台
 
 [![Python](https://img.shields.io/badge/Python-3.13+-blue.svg)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.137-green.svg)](https://fastapi.tiangolo.com/)
@@ -103,7 +103,7 @@ pip install -r requirements-dev.txt   # 開發工具（Ruff, pre-commit）
 # 安裝 Git pre-commit hooks（首次設置）
 pre-commit install
 
-# 複製環境變數（已預設開發環境密碼 mergemeet123）
+# 複製環境變數（已預設開發環境密碼 nthu123）
 cp .env.example .env
 
 # 執行資料庫遷移（建立表結構）
@@ -146,7 +146,7 @@ cd frontend && npm run test          # 前端測試
 ## 📊 專案結構
 
 ```text
-mergemeet/
+nthu/
 ├── backend/                  # 後端 FastAPI 應用
 │   ├── app/
 │   │   ├── api/              # API 路由
@@ -214,7 +214,7 @@ cd frontend && npx prettier --write src/  # 前端 format
 
 | Skill | 用途 |
 |-------|------|
-| [`mergemeet-quickstart`](.claude/skills/mergemeet-quickstart/) | 開發環境設置與故障排除 |
+| [`nthu-quickstart`](.claude/skills/nthu-quickstart/) | 開發環境設置與故障排除 |
 | [`backend-dev-fastapi`](.claude/skills/backend-dev-fastapi/) | 後端開發模式（FastAPI + SQLAlchemy） |
 | [`frontend-dev-vue3`](.claude/skills/frontend-dev-vue3/) | 前端開發模式（Vue 3 + Pinia） |
 | [`api-routing-standards`](.claude/skills/api-routing-standards/) | API 路由規範（禁止尾隨斜線） |

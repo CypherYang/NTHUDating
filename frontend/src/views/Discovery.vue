@@ -580,7 +580,7 @@ onUnmounted(() => {
 }
 
 .back-home-btn:hover {
-  background: white;
+  background: var(--color-surface);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px var(--color-like-alpha-20);
 }

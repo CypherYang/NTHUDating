@@ -2,7 +2,7 @@
   <div class="admin-dashboard">
     <!-- 頂部導航 -->
     <div class="admin-header">
-      <h1>MergeMeet 管理後台</h1>
+      <h1>NTHUDating 管理後台</h1>
       <div class="header-actions">
         <span class="admin-email">{{ userStore.user?.email }}</span>
         <n-button @click="handleLogout">登出</n-button>
@@ -542,7 +542,9 @@
             style="width: 100%"
           />
           <template #feedback>
-            <span style="color: #999; font-size: 12px">留空或設為 0 表示永久封禁</span>
+            <span style="color: var(--color-text-light); font-size: 12px"
+              >留空或設為 0 表示永久封禁</span
+            >
           </template>
         </n-form-item>
       </n-form>
@@ -572,7 +574,7 @@
           :max-height="400"
         >
           <template #empty>
-            <span style="color: #999">尚無信任分數變更紀錄</span>
+            <span style="color: var(--color-text-light)">尚無信任分數變更紀錄</span>
           </template>
         </n-data-table>
       </n-spin>
@@ -1773,7 +1775,7 @@ onMounted(() => {
 }
 
 .admin-header {
-  background: white;
+  background: var(--color-surface);
   padding: 20px 40px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
   display: flex;
@@ -1821,7 +1823,7 @@ onMounted(() => {
 }
 
 .stat-card {
-  background: white;
+  background: var(--color-surface);
   border-radius: 16px;
   padding: 24px;
   display: flex;
@@ -1910,7 +1912,7 @@ onMounted(() => {
 }
 
 .report-item {
-  background: white;
+  background: var(--color-surface);
   border-radius: 12px;
   padding: 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -1945,7 +1947,7 @@ onMounted(() => {
 
 /* Tab styles */
 .admin-tabs {
-  background: white;
+  background: var(--color-surface);
   padding: 0 40px;
 }
 
@@ -2012,7 +2014,7 @@ onMounted(() => {
 }
 
 .appeal-item {
-  background: white;
+  background: var(--color-surface);
   border-radius: 12px;
   padding: 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -2119,7 +2121,7 @@ onMounted(() => {
 }
 
 .photo-card {
-  background: white;
+  background: var(--color-surface);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);

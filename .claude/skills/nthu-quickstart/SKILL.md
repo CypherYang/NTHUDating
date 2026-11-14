@@ -1,13 +1,13 @@
 ---
-name: mergemeet-quickstart
-description: 設定 MergeMeet 開發環境、執行服務、排除故障或學習開發流程時使用此 skill。涵蓋 Docker、FastAPI、Vue 3、PostgreSQL、Redis、測試和常用指令。
+name: nthu-quickstart
+description: 設定 NTHUDating 開發環境、執行服務、排除故障或學習開發流程時使用此 skill。涵蓋 Docker、FastAPI、Vue 3、PostgreSQL、Redis、測試和常用指令。
 ---
 
-# MergeMeet 快速入門指南
+# NTHUDating 快速入門指南
 
 ## 目的
 
-提供 MergeMeet 專案的完整開發流程指南，包含環境設定、常用指令和故障排除。
+提供 NTHUDating 專案的完整開發流程指南，包含環境設定、常用指令和故障排除。
 
 ---
 
@@ -65,7 +65,7 @@ npm run dev
 
 ```bash
 # 連接到 PostgreSQL
-docker exec -it mergemeet_postgres psql -U mergemeet -d mergemeet
+docker exec -it nthu_postgres psql -U nthu -d nthu
 
 # 常用 SQL 指令
 \dt                    # 列出資料表
@@ -120,7 +120,7 @@ docker compose ps
 docker compose restart postgres
 
 # 測試連接
-docker exec -it mergemeet_postgres psql -U mergemeet -d mergemeet -c "SELECT 1;"
+docker exec -it nthu_postgres psql -U nthu -d nthu -c "SELECT 1;"
 ```
 
 ### 前端無法連接後端

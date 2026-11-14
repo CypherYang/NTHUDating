@@ -407,7 +407,7 @@ onUnmounted(() => {
 }
 
 .back-home-btn:hover {
-  background: white;
+  background: var(--color-surface);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px var(--color-like-alpha-20);
 }
@@ -540,7 +540,7 @@ onUnmounted(() => {
 /* 配對卡片 */
 .match-card {
   position: relative;
-  background: white;
+  background: var(--color-surface);
   border-radius: var(--radius-xl);
   padding: 24px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
@@ -646,7 +646,7 @@ onUnmounted(() => {
   height: 90px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid white;
+  border: 3px solid var(--color-surface);
 }
 
 .avatar-placeholder {
@@ -667,7 +667,7 @@ onUnmounted(() => {
   height: 20px;
   background: var(--color-success-500);
   border-radius: 50%;
-  border: 3px solid white;
+  border: 3px solid var(--color-surface);
   box-shadow: 0 0 0 rgba(76, 175, 80, 0.7);
   animation: pulse 2s ease-in-out infinite;
 }
@@ -868,7 +868,7 @@ onUnmounted(() => {
 
 /* Modal 容器 */
 .modal-container {
-  background: white;
+  background: var(--color-surface);
   border-radius: var(--radius-2xl);
   max-width: 480px;
   width: 100%;

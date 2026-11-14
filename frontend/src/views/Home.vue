@@ -9,7 +9,7 @@
             <Icon name="heart" size="xl" decorative class="heart-icon heart-right" />
           </div>
         </div>
-        <h1>歡迎使用 MergeMeet</h1>
+        <h1>歡迎使用 NTHUDating</h1>
         <p class="subtitle">遇見對的人，從這裡開始</p>
       </div>
 

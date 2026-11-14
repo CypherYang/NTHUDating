@@ -17,7 +17,7 @@
 
         <div class="modal-container" @click.stop>
           <div class="modal-content">
-            <!-- MergeMeet 品牌視覺簽名：雙心交疊 -->
+            <!-- NTHUDating 品牌視覺簽名：雙心交疊 -->
             <div class="brand-hearts" aria-hidden="true">
               <div class="heart-left">❤</div>
               <div class="heart-right">❤</div>
@@ -203,7 +203,7 @@ const particleStyle = (i) => {
 }
 
 /* ========================================
-   品牌視覺簽名：雙心交疊 (MergeMeet)
+   品牌視覺簽名：雙心交疊 (NTHUDating)
    兩顆心從左右滑入、交疊、產生火花
    ======================================== */
 .brand-hearts {

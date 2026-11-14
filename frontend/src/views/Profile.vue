@@ -834,7 +834,7 @@ onMounted(async () => {
 }
 
 .back-home-btn:hover {
-  background: white;
+  background: var(--color-surface);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px var(--color-primary-alpha-30);
 }
@@ -848,7 +848,7 @@ onMounted(async () => {
 }
 
 .card {
-  background: white;
+  background: var(--color-surface);
   border-radius: var(--radius-lg);
   padding: 2rem;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
@@ -1013,7 +1013,7 @@ onMounted(async () => {
   border-radius: var(--radius-md);
   font-size: 1rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  background: white;
+  background: var(--color-surface);
 }
 
 .form-group input:focus,
@@ -1098,7 +1098,7 @@ onMounted(async () => {
   border-radius: var(--radius-md);
   font-size: 15px;
   transition: all 0.3s ease;
-  background: white;
+  background: var(--color-surface);
   cursor: pointer;
 }
 
@@ -1171,7 +1171,7 @@ onMounted(async () => {
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid white;
+  border: 4px solid var(--color-surface);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 

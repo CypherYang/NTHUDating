@@ -1,10 +1,10 @@
-# MergeMeet 安全策略文檔
+# NTHUDating 安全策略文檔
 
 ## 認證與授權
 
 ### 雙重認證機制（HttpOnly Cookie + Bearer Token）
 
-MergeMeet 支援兩種認證方式，優先使用 HttpOnly Cookie 提供更高安全性。
+NTHUDating 支援兩種認證方式，優先使用 HttpOnly Cookie 提供更高安全性。
 
 **主要認證方式：HttpOnly Cookie（推薦）**
 - Access Token: 30 分鐘有效期（預設，可透過環境變數調整）
@@ -237,7 +237,7 @@ MergeMeet 支援兩種認證方式，優先使用 HttpOnly Cookie 提供更高�
 
 ### 自動行為監控
 
-MergeMeet 使用信任分數系統自動追蹤用戶行為，維護平台安全。
+NTHUDating 使用信任分數系統自動追蹤用戶行為，維護平台安全。
 
 **安全應用：**
 

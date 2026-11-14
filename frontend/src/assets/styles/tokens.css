@@ -1,5 +1,5 @@
 /**
- * MergeMeet Design Tokens
+ * NTHUDating Design Tokens
  * 交友平台設計系統 - CSS 變數定義
  *
  * 配色哲學：
@@ -12,21 +12,21 @@
   /* === 交友平台主題配色 === */
 
   /* Primary - 玫瑰紅 (浪漫、熱情) */
-  --color-primary-50: #fff1f2;
-  --color-primary-100: #ffe4e6;
-  --color-primary-200: #fecdd3;
-  --color-primary-300: #fda4af;
-  --color-primary-400: #fb7185;
-  --color-primary-500: #f43f5e;
-  --color-primary-600: #e11d48;
-  --color-primary-700: #be123c;
-  --color-primary-800: #9f1239;
-  --color-primary-900: #881337;
-  --color-primary-gradient: linear-gradient(135deg, #fb7185 0%, #ec4899 100%);
-  --color-primary-gradient-alt: linear-gradient(135deg, #f43f5e 0%, #fda4af 100%);
-  --color-primary-alpha-10: rgba(225, 29, 72, 0.1);
-  --color-primary-alpha-20: rgba(225, 29, 72, 0.2);
-  --color-primary-alpha-30: rgba(225, 29, 72, 0.3);
+  --color-primary-50: #171717;
+  --color-primary-100: #1f1f1f;
+  --color-primary-200: #262626;
+  --color-primary-300: #404040;
+  --color-primary-400: #737373;
+  --color-primary-500: #a3a3a3;
+  --color-primary-600: #3f3f46;
+  --color-primary-700: #27272a;
+  --color-primary-800: #18181b;
+  --color-primary-900: #0a0a0a;
+  --color-primary-gradient: linear-gradient(135deg, #3f3f46 0%, #18181b 100%);
+  --color-primary-gradient-alt: linear-gradient(135deg, #52525b 0%, #27272a 100%);
+  --color-primary-alpha-10: rgba(255, 255, 255, 0.1);
+  --color-primary-alpha-20: rgba(255, 255, 255, 0.2);
+  --color-primary-alpha-30: rgba(255, 255, 255, 0.3);
 
   /* Secondary - 粉紫色漸層 (保留原有風格作為替代選項) */
   --color-secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
@@ -34,11 +34,11 @@
   --color-secondary-600: #f093fb;
 
   /* Accent - 暖橘色 (活力、配對成功) */
-  --color-accent-300: #fdba74;
-  --color-accent-400: #fb923c;
-  --color-accent-500: #f97316;
-  --color-accent-600: #ea580c;
-  --color-accent-gradient: linear-gradient(135deg, #f97316 0%, #fb923c 100%);
+  --color-accent-300: #d4d4d8;
+  --color-accent-400: #a1a1aa;
+  --color-accent-500: #71717a;
+  --color-accent-600: #52525b;
+  --color-accent-gradient: linear-gradient(135deg, #71717a 0%, #a1a1aa 100%);
 
   /* Like - 保留現有珊瑚紅 (用於 Like 按鈕) */
   --color-like: #ff6b6b;
@@ -51,7 +51,7 @@
 
   /* 高對比度變體 - 用於小文字，符合 WCAG AA 標準 (4.5:1 對比度) */
   --color-like-accessible: #c73a3a; /* 替代 #FF6B6B 用於小文字 */
-  --color-primary-accessible: #be123c; /* 替代 #FB7185 用於小文字 */
+  --color-primary-accessible: #d4d4d8; /* 替代 #FB7185 用於小文字 */
 
   /* Success - 配對成功、驗證通過 */
   --color-success-400: #4ade80;
@@ -74,23 +74,23 @@
   --color-error-alpha-10: rgba(244, 67, 54, 0.1);
 
   /* 中性色 - 帶暖色調 */
-  --color-text-primary: #333333; /* 主要文字 */
-  --color-text-secondary: #555555; /* 次要文字 */
-  --color-text-muted: #666666; /* 柔和提示 */
-  --color-text-light: #999999; /* 淺色文字 */
-  --color-text-dark: #1f2937; /* 強調文字 */
+  --color-text-primary: #67e8f9; /* 主要文字 */
+  --color-text-secondary: #a5f3fc; /* 次要文字 */
+  --color-text-muted: #d4d4d4; /* 柔和提示 */
+  --color-text-light: #a3a3a3; /* 淺色文字 */
+  --color-text-dark: #ffffff; /* 強調文字 */
 
   /* 背景色 */
-  --color-background: #fff1f2; /* 玫瑰白背景 */
-  --color-background-alt: #ffe4e6; /* 次要背景 */
-  --color-background-light: #f5f5f5; /* 淺灰背景 */
-  --color-surface: #ffffff; /* 卡片表面 */
-  --color-surface-hover: #fffaf0; /* 懸停表面 */
+  --color-background: #0a0a0a; /* 玫瑰白背景 */
+  --color-background-alt: #141414; /* 次要背景 */
+  --color-background-light: #1a1a1a; /* 淺灰背景 */
+  --color-surface: #161616; /* 卡片表面 */
+  --color-surface-hover: #1f1f1f; /* 懸停表面 */
 
   /* 邊框色 */
-  --color-border: #e0e0e0; /* 預設邊框 */
-  --color-border-light: #f0f0f0; /* 淺色邊框 */
-  --color-border-primary: #fecdd3; /* 主色邊框 */
+  --color-border: #2e2e2e; /* 預設邊框 */
+  --color-border-light: #262626; /* 淺色邊框 */
+  --color-border-primary: #3f3f46; /* 主色邊框 */
 
   /* === 間距 (4px 增量) === */
   --space-0: 0;
@@ -162,17 +162,17 @@
   --radius-full: 9999px;
 
   /* === 陰影 (帶玫瑰色調) === */
-  --shadow-sm: 0 1px 2px rgba(136, 19, 55, 0.05);
-  --shadow-md: 0 4px 12px rgba(136, 19, 55, 0.1);
-  --shadow-lg: 0 8px 24px rgba(136, 19, 55, 0.15);
-  --shadow-xl: 0 12px 40px rgba(136, 19, 55, 0.2);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.6);
+  --shadow-xl: 0 12px 40px rgba(0, 0, 0, 0.7);
   --shadow-2xl: 0 20px 60px rgba(0, 0, 0, 0.3);
 
   /* 特定元素陰影 */
   --shadow-card: 0 8px 30px rgba(0, 0, 0, 0.15);
   --shadow-card-hover: 0 12px 40px rgba(0, 0, 0, 0.2);
   --shadow-button: 0 4px 15px rgba(0, 0, 0, 0.1);
-  --shadow-button-hover: 0 8px 25px rgba(225, 29, 72, 0.4);
+  --shadow-button-hover: 0 8px 25px rgba(0, 0, 0, 0.6);
   --shadow-like-hover: 0 10px 30px rgba(255, 107, 107, 0.5);
 
   /* === 容器最大寬度 === */
@@ -190,6 +190,13 @@
 }
 
 /* === 全域重置與基礎樣式 === */
+html,
+body {
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  color-scheme: dark;
+}
+
 *,
 *::before,
 *::after {

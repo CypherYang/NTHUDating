@@ -1049,7 +1049,7 @@ onUnmounted(() => {
   appearance: none;
   width: 24px;
   height: 24px;
-  background: white;
+  background: var(--color-surface);
   border: 3px solid var(--color-primary-600);
   border-radius: 50%;
   cursor: pointer;
@@ -1064,7 +1064,7 @@ onUnmounted(() => {
 .distance-input input[type='range']::-moz-range-thumb {
   width: 24px;
   height: 24px;
-  background: white;
+  background: var(--color-surface);
   border: 3px solid var(--color-primary-600);
   border-radius: 50%;
   cursor: pointer;
@@ -1103,7 +1103,7 @@ onUnmounted(() => {
   border-radius: var(--radius-md);
   cursor: pointer;
   transition: all 0.3s ease;
-  background: white;
+  background: var(--color-surface);
 }
 
 .gender-option:hover {

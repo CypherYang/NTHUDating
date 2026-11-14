@@ -1,6 +1,6 @@
 ---
 name: api-routing-standards
-description: 在 MergeMeet 專案中建立或修改 API 路由時使用此 skill。它強制執行「禁止尾隨斜線」標準以防止 404 錯誤。適用於處理 FastAPI 路由、修復 404 錯誤或審查 API 端點定義時。
+description: 在 NTHUDating 專案中建立或修改 API 路由時使用此 skill。它強制執行「禁止尾隨斜線」標準以防止 404 錯誤。適用於處理 FastAPI 路由、修復 404 錯誤或審查 API 端點定義時。
 ---
 
 # API 路由標準

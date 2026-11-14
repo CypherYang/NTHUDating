@@ -8,7 +8,7 @@
             <Icon name="heart" size="lg" decorative class="heart-icon heart-small" />
           </div>
         </div>
-        <h1>加入 MergeMeet</h1>
+        <h1>加入 NTHUDating</h1>
         <p>開始你的交友之旅</p>
       </div>
 
@@ -449,7 +449,7 @@ const handleRegister = async () => {
   border: 2px solid var(--color-border);
   border-radius: 12px;
   font-size: 1rem;
-  background: white;
+  background: var(--color-surface);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   outline: none;
   font-family: inherit;

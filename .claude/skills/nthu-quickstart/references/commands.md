@@ -17,8 +17,8 @@ docker compose ps
 docker compose logs -f postgres
 
 # 進入容器
-docker exec -it mergemeet_postgres psql -U mergemeet -d mergemeet
-docker exec -it mergemeet_redis redis-cli -a mergemeet_redis123
+docker exec -it nthu_postgres psql -U nthu -d nthu
+docker exec -it nthu_redis redis-cli -a nthu_redis123
 ```
 
 ---
@@ -28,7 +28,7 @@ docker exec -it mergemeet_redis redis-cli -a mergemeet_redis123
 ### psql 指令
 
 ```bash
-docker exec -it mergemeet_postgres psql -U mergemeet -d mergemeet
+docker exec -it nthu_postgres psql -U nthu -d nthu
 ```
 
 ```sql
@@ -50,8 +50,8 @@ alembic downgrade -1                               # 回退一版
 ### 備份
 
 ```bash
-docker exec mergemeet_postgres pg_dump -U mergemeet mergemeet > backup.sql
-docker exec -i mergemeet_postgres psql -U mergemeet -d mergemeet < backup.sql
+docker exec nthu_postgres pg_dump -U nthu nthu > backup.sql
+docker exec -i nthu_postgres psql -U nthu -d nthu < backup.sql
 ```
 
 ---

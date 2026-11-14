@@ -2,7 +2,7 @@
 
 ## 概述
 
-MergeMeet 的聊天訊息 API 使用 **Cursor-based Pagination**（游標分頁），這是聊天應用的業界標準做法。
+NTHUDating 的聊天訊息 API 使用 **Cursor-based Pagination**（游標分頁），這是聊天應用的業界標準做法。
 
 Slack、Discord 等主流聊天應用的 API 都採用類似的 cursor-based 分頁機制。
 

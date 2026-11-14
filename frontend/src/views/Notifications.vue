@@ -302,7 +302,7 @@ onMounted(() => {
 }
 
 .back-btn:hover {
-  background: white;
+  background: var(--color-surface);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(255, 107, 107, 0.3);
 }
@@ -377,7 +377,7 @@ onMounted(() => {
 .empty-state {
   text-align: center;
   padding: 60px 20px;
-  background: white;
+  background: var(--color-surface);
   border-radius: var(--radius-xl);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
@@ -401,7 +401,7 @@ onMounted(() => {
 
 /* 通知列表 */
 .notification-list {
-  background: white;
+  background: var(--color-surface);
   border-radius: var(--radius-xl);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   overflow: hidden;

@@ -1,4 +1,4 @@
-# MergeMeet 功能清單
+# NTHUDating 功能清單
 
 > 完整的功能開發記錄與詳細說明
 

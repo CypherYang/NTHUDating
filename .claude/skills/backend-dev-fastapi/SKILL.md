@@ -1,13 +1,13 @@
 ---
 name: backend-dev-fastapi
-description: 在 MergeMeet 開發後端功能時使用此 skill。提供 FastAPI + SQLAlchemy 2.0 Async + PostgreSQL/PostGIS 的開發模式指南，包含路由、模型、Pydantic 驗證、JWT 認證、WebSocket 和錯誤處理。
+description: 在 NTHUDating 開發後端功能時使用此 skill。提供 FastAPI + SQLAlchemy 2.0 Async + PostgreSQL/PostGIS 的開發模式指南，包含路由、模型、Pydantic 驗證、JWT 認證、WebSocket 和錯誤處理。
 ---
 
 # FastAPI 後端開發指南
 
 ## 目的
 
-建立 MergeMeet 專案中 FastAPI + SQLAlchemy 2.0 Async 開發的一致模式。
+建立 NTHUDating 專案中 FastAPI + SQLAlchemy 2.0 Async 開發的一致模式。
 
 ---
 
