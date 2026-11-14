@@ -54,7 +54,7 @@ docker info > /dev/null && echo "Docker 正常"
 docker compose up -d
 docker compose ps
 ```
-### 3:設定後端
+### 3.設定後端
 ```bash
 cd backend
 python3.13 -m venv venv
@@ -64,34 +64,35 @@ pip install -r requirements-test.txt
 pip install -r requirements-dev.txt
 pip install greenlet
 pre-commit install
-
 ```
-### 4.建立資料表
+### 4.建立環境變數與資料表
 
 ```bash
-source venv/bin/activate
-alembic upgrade head
-python scripts/init_interest_tags.py
-
 cp .env.example .env          # 已存在 .env 時不要重複執行
 ```
 
 編輯 `backend/.env`，至少確認以下設定：
 
 ```
-
 DATABASE_URL=postgresql+asyncpg://nthu:nthu123@localhost:5432/nthu
 REDIS_URL=redis://:nthu_redis123@localhost:6379/0
 FRONTEND_URL=http://localhost:5173
 BACKEND_CORS_ORIGINS=["http://localhost:5173"]
 ```
 
+設定好 `.env` 之後再建立資料表：
+
+```bash
+source venv/bin/activate
+alembic upgrade head
+python scripts/init_interest_tags.py
+```
+
 ### 5.設定前端
 
 ```bash
-cd ..
-cd front
-cd npm install
+cd ../frontend
+npm install
 ```
 
 ### 6.啟動後端：
@@ -100,7 +101,6 @@ cd npm install
 cd backend
 source venv/bin/activate
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
-
 ```
 
 ### 7. 啟動前端
@@ -111,9 +111,9 @@ npm run dev -- --host 0.0.0.0
 ```
 
 ### 8. 開啟網站
-server 用http://localhost:5173
+server 用 http://localhost:5173
 ipconfig getifaddr en0：查看ip
-client 用 :https://ip:5173
+client 用 http://<IP>:5173（例如 http://192.168.213.50:5173）
 
 
 ## 專案結構
@@ -145,4 +145,5 @@ NTHUDating/
 ├── docs/                 # 專案文件
 └── docker-compose.yml    # 基礎服務設定
 ```
+
 
