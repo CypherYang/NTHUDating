@@ -2,7 +2,6 @@
 
 交友平台 MVP，後端使用 FastAPI，前端使用 Vue 3，資料庫使用 PostgreSQL + PostGIS，並以 Redis 做快取與限流。
 
-> 本專案為學習與開發用途，改寫自 [twtrubiks/MergeMeet](https://github.com/twtrubiks/MergeMeet)（Apache-2.0）。
 
 ## 功能
 
@@ -16,7 +15,7 @@
 | 管理後台 | 統計儀表板、檢舉處理、用戶管理 |
 | 通知系統 | 通知中心、未讀計數、即時推送 |
 
-## 技術棧
+## 技術
 
 | 層級 | 技術 |
 |------|------|
@@ -46,17 +45,16 @@
 - Python 3.13+
 - Node.js 24+
 
-### 1. 啟動基礎服務
-
+### 1.確認docker正常
+```bash
+docker info > /dev/null && echo "Docker 正常"
+```
+### 2.啟動docker(在專案目錄下)
 ```bash
 docker compose up -d
 docker compose ps
 ```
-
-會啟動 PostgreSQL、Redis 和 Mailpit。PostgreSQL 與 Redis 只綁定 `127.0.0.1`，外部無法直接連線。
-
-### 2. 設定後端
-
+### 3:設定後端
 ```bash
 cd backend
 python3.13 -m venv venv
@@ -64,8 +62,16 @@ source venv/bin/activate
 pip install -r requirements.txt
 pip install -r requirements-test.txt
 pip install -r requirements-dev.txt
-pip install greenlet          # SQLAlchemy 非同步模式需要，目前 requirements 未列出
+pip install greenlet
 pre-commit install
+
+```
+### 4.建立資料表
+
+```bash
+source venv/bin/activate
+alembic upgrade head
+python scripts/init_interest_tags.py
 
 cp .env.example .env          # 已存在 .env 時不要重複執行
 ```
@@ -73,104 +79,42 @@ cp .env.example .env          # 已存在 .env 時不要重複執行
 編輯 `backend/.env`，至少確認以下設定：
 
 ```
+
 DATABASE_URL=postgresql+asyncpg://nthu:nthu123@localhost:5432/nthu
 REDIS_URL=redis://:nthu_redis123@localhost:6379/0
 FRONTEND_URL=http://localhost:5173
 BACKEND_CORS_ORIGINS=["http://localhost:5173"]
 ```
 
-寄信設定見下方〈寄信設定〉。
-
-建立資料表並初始化興趣標籤（首次執行）：
+### 5.設定前端
 
 ```bash
-alembic upgrade head
-python scripts/init_interest_tags.py
+cd ..
+cd front
+cd npm install
 ```
 
-啟動後端：
+### 6.啟動後端：
 
 ```bash
+cd backend
+source venv/bin/activate
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+
 ```
 
-### 3. 設定前端
+### 7. 啟動前端
 
 ```bash
 cd frontend
-npm install
 npm run dev -- --host 0.0.0.0
 ```
 
-### 4. 開啟網站
+### 8. 開啟網站
+server 用http://localhost:5173
+ipconfig getifaddr en0：查看ip
+client 用 :https://ip:5173
 
-| 服務 | 網址 |
-|------|------|
-| 網站 | http://localhost:5173 |
-| API 文件 | http://localhost:8000/docs |
-| 驗證信箱（Mailpit，僅開發用） | http://localhost:8025 |
-| 管理後台 | http://localhost:5173/admin/login（設定方式見[管理員設置指南](./docs/管理員設置指南.md)） |
-
-## 寄信設定
-
-註冊、重設密碼等功能需要寄信。`backend/.env` 有兩種模式：
-
-**開發模式（預設）**：信件由 Mailpit 攔截，顯示在 http://localhost:8025，不會真的寄出。
-
-```
-SMTP_HOST=localhost
-SMTP_PORT=1025
-SMTP_TLS=false
-```
-
-**Gmail 模式**：信件會寄到收件人的信箱，適合 demo 或正式測試。
-
-```
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT=465
-SMTP_USER=你的寄件Gmail
-SMTP_PASSWORD=你的16碼應用程式密碼
-SMTP_FROM_EMAIL=你的寄件Gmail
-SMTP_FROM_NAME=NTHUDating
-SMTP_TLS=true
-```
-
-- 應用程式密碼需要先開啟 Google 帳號的兩步驟驗證，再到「應用程式密碼」頁面建立，**不是 Gmail 登入密碼**。
-- 目前程式使用直接加密連線（`use_tls`），Gmail 必須用 465 埠，不支援 587 + STARTTLS。
-- 寄件人只有一組（即 `SMTP_USER`），收件人可以是任何信箱，包括觀眾自己的 Gmail。
-
-## 讓其他裝置連線
-
-後端和前端都要用 `--host 0.0.0.0` 啟動。依照連線方式，修改 `backend/.env`：
-
-| 情境 | `FRONTEND_URL` 與 `BACKEND_CORS_ORIGINS` 設定為 |
-|------|------|
-| 同一個 Wi-Fi | `http://<電腦的區網IP>:5173` |
-| Tailscale 跨網路 | `http://<Tailscale 位址>:5173` |
-| 公開通道（demo） | `https://xxxx.trycloudflare.com`，並在 `frontend/vite.config.js` 的 `server` 加上 `allowedHosts: ['.trycloudflare.com']` |
-
-修改後要重啟後端。`FRONTEND_URL` 會寫進信件連結，要填觀眾實際會打開的網址。
-
-查詢區網 IP：
-
-```bash
-ipconfig getifaddr en0
-```
-
-> 公開通道與區網開放僅適合 demo。開發環境使用預設密碼，不要在公用網路長時間開放。
-
-## 測試
-
-```bash
-cd backend && pytest -v --cov=app    # 後端測試
-cd frontend && npm run test          # 前端測試（Vitest）
-```
-
-提交時 pre-commit 會自動執行 Ruff、ESLint、Prettier 等檢查。手動執行：
-
-```bash
-pre-commit run --all-files
-```
 
 ## 專案結構
 
@@ -202,25 +146,3 @@ NTHUDating/
 └── docker-compose.yml    # 基礎服務設定
 ```
 
-## 文件
-
-| 文件 | 說明 |
-|------|------|
-| [技術架構](./docs/ARCHITECTURE.md) | 系統架構、資料庫設計、API 設計 |
-| [安全機制](./docs/SECURITY.md) | 認證授權、資料保護、安全措施 |
-| [功能清單](./docs/FEATURES.md) | 完整功能說明 |
-| [配對演算法](./docs/MATCHING_ALGORITHM.md) | 配對評分細節 |
-| [信任分數系統](./docs/TRUST_SCORE_SYSTEM.md) | 信任分數規則 |
-| [測試指南](./docs/testing/TESTING_GUIDE.md) | 測試策略與執行方式 |
-
-## 常見問題
-
-- **`relation "users" does not exist`**：還沒執行 `alembic upgrade head`。
-- **`Connection refused` 到 5432**：PostgreSQL 容器沒有啟動，執行 `docker compose ps` 檢查。
-- **Apple Silicon 無法拉取 PostgreSQL 映像**：`docker-compose.yml` 的 postgres 服務需要加上 `platform: linux/amd64`。
-- **收不到驗證信**：確認寄信設定，後端終端機會顯示 `Email sent successfully` 或 `Failed to send email`。
-- **別的裝置打不開網站**：確認 IP 正確、防火牆允許連入、前後端都使用 `--host 0.0.0.0`。
-
-## 授權
-
-Apache-2.0。原始專案版權屬於 [twtrubiks](https://github.com/twtrubiks)，改寫部分的版權聲明請依你的需求補充。
