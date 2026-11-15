@@ -8,8 +8,6 @@
 
 - **專案名稱**: NTHUDating 交友平台
 - **技術棧**: FastAPI + Vue 3 + PostgreSQL + PostGIS + Redis
-- **開發階段**: MVP（Week 1-6 已完成）
-- **測試覆蓋率**: 目標 >80%（後端現約 68%）
 
 ---
 
