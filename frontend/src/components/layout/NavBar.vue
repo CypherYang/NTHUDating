@@ -197,10 +197,7 @@ const handleUserMenuSelect = (key) => {
 .logo-text {
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-bold);
-  background: var(--color-primary-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-text-primary);
 }
 
 /* 中間導航 */

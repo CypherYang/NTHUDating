@@ -285,6 +285,24 @@ export const useChatStore = defineStore('chat', () => {
   }
 
   /**
+   * 隨機抽一題破冰辯論題
+   * 後端會從題庫抽題並存成訊息，再透過 WebSocket 的 new_message 事件送給雙方
+   * @param {string} matchId - 配對 ID
+   * @returns {Promise<Object>} 題目訊息
+   */
+  const drawDebateTopic = async (matchId) => {
+    try {
+      const response = await apiClient.post(`/messages/matches/${matchId}/debate-topic`)
+      // 補上本地狀態，避免 WebSocket 事件延遲或遺漏（handleNewMessage 會去重）
+      await handleNewMessage({ message: response.data })
+      return response.data
+    } catch (err) {
+      error.value = err.response?.data?.detail || '抽題失敗'
+      throw err
+    }
+  }
+
+  /**
    * 發送圖片訊息
    * @param {string} matchId - 配對 ID
    * @param {Object} imageData - 圖片資料 (來自 uploadChatImage)
@@ -542,6 +560,7 @@ export const useChatStore = defineStore('chat', () => {
     deleteMessage,
     uploadChatImage,
     sendImageMessage,
+    drawDebateTopic,
     sendTyping,
     joinMatchRoom,
     leaveMatchRoom,

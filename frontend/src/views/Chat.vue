@@ -98,6 +98,18 @@
           @image-sent="handleImageSent"
         />
 
+        <!-- 破冰題目：從題庫隨機抽一題辯論題 -->
+        <n-button
+          class="topic-button"
+          :disabled="!wsStore.isConnected"
+          :loading="isDrawingTopic"
+          title="隨機抽一題破冰辯論題"
+          aria-label="隨機抽一題破冰辯論題"
+          @click="handleDrawTopic"
+        >
+          🎲 破冰
+        </n-button>
+
         <n-input
           v-model:value="messageInput"
           type="textarea"
@@ -412,6 +424,22 @@ const handleSendMessage = async (event) => {
     scrollToBottom()
   } catch (error) {
     message.error(error.message || '發送失敗')
+  }
+}
+
+// 隨機抽一題破冰辯論題
+const isDrawingTopic = ref(false)
+const handleDrawTopic = async () => {
+  if (isDrawingTopic.value) return
+  isDrawingTopic.value = true
+  try {
+    await chatStore.drawDebateTopic(matchId.value)
+    await nextTick()
+    scrollToBottom()
+  } catch (error) {
+    message.error(error.response?.data?.detail || '抽題失敗，請稍後再試')
+  } finally {
+    isDrawingTopic.value = false
   }
 }
 
@@ -751,6 +779,10 @@ onUnmounted(() => {
 }
 
 .send-button {
+  flex-shrink: 0;
+}
+
+.topic-button {
   flex-shrink: 0;
 }
 

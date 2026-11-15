@@ -1,5 +1,6 @@
 """Models module"""
 
+from app.models.debate_topic import DebateTopic
 from app.models.match import BlockedUser, Like, Match, Message
 from app.models.moderation import ContentAppeal, ModerationLog, SensitiveWord
 from app.models.notification import Notification
@@ -24,4 +25,5 @@ __all__ = [
     "ContentAppeal",
     "ModerationLog",
     "Notification",
+    "DebateTopic",
 ]

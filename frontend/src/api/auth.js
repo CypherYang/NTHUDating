@@ -62,9 +62,7 @@ export const authAPI = {
    * @returns {Promise}
    */
   async resendVerification(email) {
-    const response = await apiClient.post('/auth/resend-verification', null, {
-      params: { email }
-    })
+    const response = await apiClient.post('/auth/resend-verification', { email })
     return response.data
   },
 

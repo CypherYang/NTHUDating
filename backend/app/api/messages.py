@@ -12,6 +12,7 @@ from sqlalchemy.orm import selectinload
 from app.core.config import settings
 from app.core.database import get_db
 from app.core.dependencies import get_current_user
+from app.models.debate_topic import DebateTopic
 from app.models.match import Match, Message
 from app.models.profile import Profile
 from app.models.user import User
@@ -23,6 +24,7 @@ from app.schemas.message import (
     MessageResponse,
 )
 from app.services.file_storage import file_storage
+from app.services.redis_client import redis_client
 from app.websocket.manager import manager
 
 router = APIRouter()
@@ -512,3 +514,108 @@ async def upload_chat_image(
         height=height,
         is_gif=is_gif,
     )
+
+
+# 破冰題目訊息的固定開頭（前端依此套用醒目樣式）
+DEBATE_TOPIC_PREFIX = "🎲 破冰辯論題："
+# 同一個配對抽題的冷卻秒數，避免連點洗版
+DEBATE_TOPIC_COOLDOWN_SECONDS = 5
+
+
+@router.post(
+    "/matches/{match_id}/debate-topic",
+    response_model=MessageResponse,
+    status_code=status.HTTP_201_CREATED,
+)
+async def draw_debate_topic(
+    match_id: uuid.UUID,
+    current_user: User = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db),
+):
+    """
+    隨機抽一題破冰辯論題，並以訊息形式送進聊天室
+
+    - 從 debate_topics 題庫隨機挑選一題啟用中的題目
+    - 題目會存成一則訊息，配對雙方都看得到，也會留在聊天記錄
+    - 只有配對成員可以抽題
+    """
+    # 驗證配對是否存在且用戶是成員
+    result = await db.execute(
+        select(Match).where(
+            and_(
+                Match.id == match_id,
+                Match.status == "ACTIVE",
+                or_(Match.user1_id == current_user.id, Match.user2_id == current_user.id),
+            )
+        )
+    )
+    match = result.scalar_one_or_none()
+
+    if not match:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="配對不存在或您無權操作")
+
+    # 冷卻檢查（Redis 異常時不阻擋抽題）
+    try:
+        redis = await redis_client.get_connection()
+        acquired = await redis.set(
+            f"chat:debate_topic_cooldown:{match_id}",
+            "1",
+            ex=DEBATE_TOPIC_COOLDOWN_SECONDS,
+            nx=True,
+        )
+    except Exception as e:
+        logger.warning(f"Debate topic cooldown check skipped: {e}")
+        acquired = True
+    if not acquired:
+        raise HTTPException(
+            status_code=status.HTTP_429_TOO_MANY_REQUESTS, detail="抽題太頻繁，請稍等幾秒再試"
+        )
+
+    # 隨機抽一題
+    topic_result = await db.execute(
+        select(DebateTopic).where(DebateTopic.is_active.is_(True)).order_by(func.random()).limit(1)
+    )
+    topic = topic_result.scalar_one_or_none()
+
+    if not topic:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="題庫目前沒有題目，請先建立題庫"
+        )
+
+    # 存成訊息（題目來自題庫，不需經過用戶輸入的內容審核）
+    message = Message(
+        match_id=match_id,
+        sender_id=current_user.id,
+        content=f"{DEBATE_TOPIC_PREFIX}{topic.content}",
+        message_type="TEXT",
+    )
+    db.add(message)
+    await db.commit()
+    await db.refresh(message)
+
+    # 廣播給聊天室中的雙方
+    await manager.send_to_match(
+        str(match_id),
+        {
+            "type": "new_message",
+            "message": {
+                "id": str(message.id),
+                "match_id": str(message.match_id),
+                "sender_id": str(message.sender_id),
+                "content": message.content,
+                "message_type": message.message_type,
+                "sent_at": message.sent_at.isoformat(),
+                "is_read": None,
+            },
+        },
+    )
+
+    # 對方不在聊天室時發送通知（失敗不影響抽題結果）
+    try:
+        from app.api.websocket import _send_message_notification
+
+        await _send_message_notification(match, current_user.id, message, db)
+    except Exception as e:
+        logger.error(f"Failed to send debate topic notification: {e}", exc_info=True)
+
+    return MessageResponse.model_validate(message)

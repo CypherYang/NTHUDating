@@ -26,7 +26,8 @@
           <div
             :class="[
               'message-content',
-              isOwn ? 'bg-blue-500 text-white' : 'bg-gray-100 text-gray-900'
+              isOwn ? 'bg-blue-500 text-white' : 'bg-gray-100 text-gray-900',
+              { 'message-topic': isTopicMessage }
             ]"
             @contextmenu.prevent="handleContextMenu"
           >
@@ -39,7 +40,8 @@
           v-else
           :class="[
             'message-content',
-            isOwn ? 'bg-blue-500 text-white' : 'bg-gray-100 text-gray-900'
+            isOwn ? 'bg-blue-500 text-white' : 'bg-gray-100 text-gray-900',
+            { 'message-topic': isTopicMessage }
           ]"
         >
           {{ message.content }}
@@ -118,6 +120,11 @@ const showDropdown = ref(false)
 // 判斷訊息類型
 const isTextMessage = computed(() => {
   return !props.message.message_type || props.message.message_type === 'TEXT'
+})
+
+// 破冰辯論題（後端以固定開頭標記）
+const isTopicMessage = computed(() => {
+  return isTextMessage.value && props.message.content?.startsWith('🎲 破冰辯論題：')
 })
 
 const isImageMessage = computed(() => {
@@ -249,6 +256,12 @@ const formattedTime = computed(() => {
 
 .message-own .message-content {
   border-bottom-right-radius: 4px;
+}
+
+/* 破冰辯論題：加上亮色外框讓題目更醒目 */
+.message-content.message-topic {
+  border: 1px solid var(--color-text-primary);
+  font-weight: 600;
 }
 
 .message-other .message-content {
